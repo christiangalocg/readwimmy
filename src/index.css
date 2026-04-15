@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 10% 8%;
+    --foreground: 40 20% 92%;
+
+    --card: 30 8% 12%;
+    --card-foreground: 40 20% 92%;
+
+    --popover: 30 8% 12%;
+    --popover-foreground: 40 20% 92%;
+
+    --primary: 38 90% 55%;
+    --primary-foreground: 30 10% 8%;
+
+    --secondary: 30 8% 16%;
+    --secondary-foreground: 40 15% 75%;
+
+    --muted: 30 6% 18%;
+    --muted-foreground: 30 10% 55%;
+
+    --accent: 38 90% 55%;
+    --accent-foreground: 30 10% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 8% 20%;
+    --input: 30 8% 20%;
+    --ring: 38 90% 55%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 30 10% 8%;
+    --sidebar-foreground: 40 20% 92%;
+    --sidebar-primary: 38 90% 55%;
+    --sidebar-primary-foreground: 30 10% 8%;
+    --sidebar-accent: 30 8% 16%;
+    --sidebar-accent-foreground: 40 20% 92%;
+    --sidebar-border: 30 8% 20%;
+    --sidebar-ring: 38 90% 55%;
+
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+
+    --gradient-warm: linear-gradient(135deg, hsl(38 90% 55%), hsl(28 85% 50%));
+    --gradient-dark: linear-gradient(180deg, hsl(30 10% 8%), hsl(30 8% 5%));
+    --gradient-card: linear-gradient(145deg, hsl(30 8% 14%), hsl(30 8% 10%));
+    --shadow-glow: 0 0 40px hsl(38 90% 55% / 0.15);
+    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .text-gradient-warm {
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .pdf-page {
+    position: relative;
+  }
+
+  .pdf-text-layer {
+    position: absolute;
+    inset: 0;
+    user-select: text;
+    overflow: hidden;
+    line-height: 1;
+  }
+
+  .pdf-text-layer span,
+  .pdf-text-layer br {
+    position: absolute;
+    white-space: pre;
+    transform-origin: 0% 0%;
+    color: transparent;
+    cursor: text;
+  }
+
+  .pdf-text-layer ::selection {
+    background: hsl(var(--primary) / 0.3);
+  }
+}
