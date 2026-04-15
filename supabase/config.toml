@@ -1,0 +1,4 @@
+project_id = "eacxppzjrvlqikqxwwgf"
+
+[functions.analyze-book]
+verify_jwt = false
